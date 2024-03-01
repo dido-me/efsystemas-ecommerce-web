@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ThemeModeScript } from 'flowbite-react'
+import NavbarPublic from '@app/components/NavbarPublic.component'
+import FooterPublic from '@app/components/FooterPublic.component'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +20,14 @@ export default function RootLayout ({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <ThemeModeScript />
+      </head>
+      <body className={inter.className}>
+        <NavbarPublic />
+        {children}
+        <FooterPublic />
+      </body>
     </html>
   )
 }
